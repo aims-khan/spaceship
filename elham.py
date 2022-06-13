@@ -1,5 +1,3 @@
-import_rondam()
-
 
 print("rock")
 print("paper")
