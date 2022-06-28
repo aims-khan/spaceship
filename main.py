@@ -1,33 +1,25 @@
-import pygame
-import os
+print("Celsius to Fahrenheit Converter")
+print("What do you want to convert? Celsius or Fahrenheit")
+answer = input("Type your answer? celsius/fahrenheit ")
 
-WIDTH, HEIGHT= 900, 500
 
-WIN = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("Spaceship evening")
-WHITE=(255,255,255)
-SPACESHIP_WIDTH, SPACESHIP_HEIGHT= 55, 40
+def celsius_fahrenheit():
+    celsius = input("Enter celsius Value: ")
+    fahrenheit = (int(celsius) * float(1.8)) + 32
+    print(round(fahrenheit))
+    # return fahrenheit
 
-YELLOW_SPACESHIP_IMAGE= pygame.image.load(os.path.join("Assets", "spaceship_yellow.png"))
-YELLOW_SPACESHIP= pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACESHIP_IMAGE,(SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
-RED_SPACESHIP_IMAGE= pygame.image.load(os.path.join("Assets", "spaceship_red.png"))
-RED_SPACESHIP= pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP_IMAGE,(SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)
 
-def draw_window():
-	WIN.fill(WHITE)
-	WIN.blit(YELLOW_SPACESHIP,(300,100))
-	WIN.blit(YELLOW_SPACESHIP,(700,100))
-	pygame.display.update()
+def fahrenheit_celsius():
+    fahrenheit = input("Enter Fahrenheit Value: ")
+    celsius = (int(fahrenheit) - 32) * 0.5556
+    print(round(celsius))
+    # return celsius
 
-def main():
-	run= True
-	while run:
-		for event in pygame.event.get():
-			if event.type== pygame.QUIT:
-				run= False
-		draw_window()
-	pygame.quit()
 
-if __name__ == "__main__":
-	main()
-
+if answer == "celsius":
+    celsius_fahrenheit()
+elif answer == "fahrenheit":
+    fahrenheit_celsius()
+else:
+    print("Invalid Value")
